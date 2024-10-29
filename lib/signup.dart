@@ -23,7 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff2d2e2f),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: LayoutBuilder(builder: (context, constraints) {
           return SingleChildScrollView(
@@ -39,7 +39,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 Text(
                   "Sign Up",
                   style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      fontWeight: FontWeight.bold, color: Colors.white),
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87),
                 ),
                 SizedBox(height: constraints.maxHeight * 0.05),
                 Form(
@@ -59,15 +61,15 @@ class _SignupScreenState extends State<SignupScreen> {
                           label: Text(
                             "Username",
                             style: TextStyle(
-                                color: Color.fromARGB(122, 133, 133, 133),
+                                color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
                           filled: true,
-                          fillColor: Color(0xff2d2e2f),
+                          fillColor: Colors.black87,
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 16.0 * 1.5, vertical: 16.0),
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Colors.black87),
                             borderRadius: BorderRadius.all(Radius.circular(50)),
                           ),
                         ),
@@ -90,14 +92,14 @@ class _SignupScreenState extends State<SignupScreen> {
                           label: Text(
                             "Email",
                             style: TextStyle(
-                                color: Color.fromARGB(122, 133, 133, 133),
+                                color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
-                          fillColor: Color(0xff2d2e2f),
+                          fillColor: Colors.black87,
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 16.0 * 1.5, vertical: 16.0),
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Colors.black87),
                             borderRadius: BorderRadius.all(Radius.circular(50)),
                           ),
                         ),
@@ -120,7 +122,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           label: const Text(
                             "Password",
                             style: TextStyle(
-                                color: Color.fromARGB(122, 133, 133, 133),
+                                color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
                           filled: true,
@@ -134,13 +136,13 @@ class _SignupScreenState extends State<SignupScreen> {
                                 isVisible
                                     ? Icons.visibility_off
                                     : Icons.visibility,
-                                color: const Color(0xff48CFCB),
+                                color: Colors.white,
                               )),
-                          fillColor: const Color(0xff2d2e2f),
+                          fillColor: Colors.black87,
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 16.0 * 1.5, vertical: 16.0),
                           border: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Colors.black87),
                             borderRadius: BorderRadius.all(Radius.circular(50)),
                           ),
                         ),
@@ -163,7 +165,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             label: const Text(
                               "Confirm Password",
                               style: TextStyle(
-                                  color: Color.fromARGB(122, 133, 133, 133),
+                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold),
                             ),
                             filled: true,
@@ -177,13 +179,13 @@ class _SignupScreenState extends State<SignupScreen> {
                                   isconfVisible
                                       ? Icons.visibility_off
                                       : Icons.visibility,
-                                  color: const Color(0xff48CFCB),
+                                  color: Colors.white,
                                 )),
-                            fillColor: const Color(0xff2d2e2f),
+                            fillColor: Colors.black87,
                             contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 16.0 * 1.5, vertical: 16.0),
                             border: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
+                              borderSide: BorderSide(color: Colors.black87),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50)),
                             ),
@@ -213,8 +215,8 @@ class _SignupScreenState extends State<SignupScreen> {
                           },
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
-                            backgroundColor: const Color(0xff48CFCB),
-                            foregroundColor: Colors.black,
+                            backgroundColor: Colors.black87,
+                            foregroundColor: Colors.white,
                             minimumSize: const Size(double.infinity, 48),
                             shape: const StadiumBorder(),
                           ),
@@ -231,12 +233,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: Text.rich(
                           const TextSpan(
                             text: "Already have an account? ",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black87),
                             children: [
                               TextSpan(
-                                text: "Sign in",
+                                text: "Sign In",
                                 style: TextStyle(
-                                  color: Color(0xff48CFCB),
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold, // Make text bold
                                 ),
                               ),
                             ],

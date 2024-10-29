@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:visionify/Models/users.dart';
 import 'package:visionify/SqliteFunc/sqlite.dart';
 import 'package:visionify/dashboard.dart';
+import 'package:visionify/navpages/main_page.dart';
 import 'package:visionify/signup.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ class _SigninState extends State<SignInScreen> {
         return;
       }
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Dashboard()));
+          context, MaterialPageRoute(builder: (context) => MainPage()));
     } else {
       setState(() {
         isLoginTrue = true;
@@ -41,7 +42,7 @@ class _SigninState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff424242),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -61,7 +62,8 @@ class _SigninState extends State<SignInScreen> {
                           .headlineSmall!
                           .copyWith(
                               fontWeight: FontWeight.bold,
-                              color: Colors.white)),
+                              fontSize: 30,
+                              color: Colors.black87)),
                   SizedBox(height: constraints.maxHeight * 0.05),
                   Form(
                     key: _formKey,
@@ -85,7 +87,7 @@ class _SigninState extends State<SignInScreen> {
                             ),
                             prefixIcon: Icon(
                               Icons.person,
-                              color: Color(0xff48CFCB),
+                              color: Colors.white,
                             ),
                             filled: true,
                             fillColor: Color(0xff2d2e2f),
@@ -123,7 +125,7 @@ class _SigninState extends State<SignInScreen> {
                               ),
                               prefixIcon: const Icon(
                                 Icons.lock,
-                                color: Color(0xff48CFCB),
+                                color: Colors.white,
                               ),
                               suffixIcon: IconButton(
                                   onPressed: () {
@@ -135,7 +137,7 @@ class _SigninState extends State<SignInScreen> {
                                     isVisible
                                         ? Icons.visibility_off
                                         : Icons.visibility,
-                                    color: const Color(0xff48CFCB),
+                                    color: Colors.white,
                                   )),
                               filled: true,
                               fillColor: const Color(0xff2d2e2f),
@@ -161,8 +163,8 @@ class _SigninState extends State<SignInScreen> {
                           },
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
-                            backgroundColor: const Color(0xff48CFCB),
-                            foregroundColor: const Color(0xFF012924),
+                            backgroundColor: Colors.black87,
+                            foregroundColor: Colors.white,
                             minimumSize: const Size(double.infinity, 48),
                             shape: const StadiumBorder(),
                           ),
@@ -176,7 +178,7 @@ class _SigninState extends State<SignInScreen> {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
-                                .copyWith(color: Colors.white),
+                                .copyWith(color: Colors.black87),
                           ),
                         ),
                         TextButton(
@@ -189,13 +191,17 @@ class _SigninState extends State<SignInScreen> {
                           },
                           child: Text.rich(
                             const TextSpan(
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.black87),
                               text: "Don’t have an account? ",
                               children: [
                                 TextSpan(
                                   text: "Sign Up",
-                                  style: TextStyle(color: Color(0xFF48CFCB)),
+                                  style: TextStyle(
+                                    color: Colors.black87,
+                                    fontWeight: FontWeight.bold, // Make text bold
+                                  ),
                                 ),
+
                               ],
                             ),
                             style: Theme.of(context)
