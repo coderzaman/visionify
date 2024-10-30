@@ -11,6 +11,8 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage> {
   CameraController? _cameraController;
   Future<void>? _initializeControllerFuture;
+  List<CameraDescription>? _cameras;
+  int _selectedCameraIndex = 0;
 
   @override
   void initState() {
@@ -19,14 +21,20 @@ class _CameraPageState extends State<CameraPage> {
   }
 
   Future<void> _initializeCamera() async {
-    // Fetch the available cameras
-    final cameras = await availableCameras();
-    // Select the first camera (usually the rear camera)
-    final firstCamera = cameras.first;
+    // Fetch available cameras
+    _cameras = await availableCameras();
+    _initializeSelectedCamera();
+  }
 
-    // Initialize the controller
+  Future<void> _initializeSelectedCamera() async {
+    // Dispose of any existing controller
+    if (_cameraController != null) {
+      await _cameraController!.dispose();
+    }
+
+    // Initialize the selected camera
     _cameraController = CameraController(
-      firstCamera,
+      _cameras![_selectedCameraIndex],
       ResolutionPreset.medium,
     );
 
@@ -36,6 +44,12 @@ class _CameraPageState extends State<CameraPage> {
     setState(() {});
   }
 
+  void _switchCamera() {
+    // Toggle between front and back camera
+    _selectedCameraIndex = (_selectedCameraIndex + 1) % _cameras!.length;
+    _initializeSelectedCamera();
+  }
+
   @override
   void dispose() {
     _cameraController?.dispose();
@@ -43,7 +57,6 @@ class _CameraPageState extends State<CameraPage> {
   }
 
   void _startImageDetection() {
-    // Placeholder for future image detection functionality
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Image detection started')),
     );
@@ -74,6 +87,16 @@ class _CameraPageState extends State<CameraPage> {
           ),
           Positioned(
             bottom: 20,
+            left: 20,
+            child: FloatingActionButton(
+              onPressed: _switchCamera,
+              backgroundColor: Colors.blue,
+              child: const Icon(Icons.switch_camera),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 20,
             child: FloatingActionButton(
               onPressed: _startImageDetection,
               backgroundColor: Colors.blue,
