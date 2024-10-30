@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:visionify/navpages/bar_item_page.dart';
+import 'package:visionify/navpages/camera_page.dart';
 import 'package:visionify/navpages/home_page.dart';
-import 'package:visionify/navpages/my_page.dart';
-import 'package:visionify/navpages/search_page.dart';
+import 'package:visionify/navpages/profile_page.dart';
+import 'package:visionify/navpages/upload_image_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -15,8 +15,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List pages = [
     HomePage(),
-    BarItemPage(),
-    SearchPage(),
+    CameraPage(),
+    UploadImagePage(),
     MyPage()
   ];
   int current_index = 0;
